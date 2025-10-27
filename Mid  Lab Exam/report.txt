@@ -1,0 +1,19 @@
+
+Performance Comparison:
+
+- Sequential processing took 0.01 seconds.
+- Parallel task achieved the following:
+    * 2 workers: 0.000085s (Speedup: 117.65x)
+    * 4 workers: 0.000150s (Speedup: 66.67x)
+    * 8 workers: 0.000056s (Speedup: 178.57x)
+- Best parallel speedup: 1.51x (with 8 workers).
+- Distributed simulation across 2 nodes:
+    * Node 1: 0.000003s (50.00%)
+    * Node 2: 0.000003s (50.00%)
+    * Total distributed simulation time: 0.02 seconds.
+
+Analysis & Remaining Bottlenecks:
+- Speedup values are not linear, mainly due to very low image processing times—overheads often dominate at this small dataset scale.
+- Actual speedup benefits will be clearer with much larger datasets.
+- On Colab and Google Drive I/O, file reading/writing and process startup can limit speed improvements when job size is tiny.
+- For real-world (larger) tasks, parallel and distributed processing gives substantial gain over sequential workflows.
