@@ -1,19 +1,22 @@
 
-Performance Comparison:
+Image Preprocessing and Parallelization Performance Report
 
-- Sequential processing took 0.01 seconds.
-- Parallel task achieved the following:
-    * 2 workers: 0.000085s (Speedup: 117.65x)
-    * 4 workers: 0.000150s (Speedup: 66.67x)
-    * 8 workers: 0.000056s (Speedup: 178.57x)
-- Best parallel speedup: 1.51x (with 8 workers).
-- Distributed simulation across 2 nodes:
-    * Node 1: 0.000003s (50.00%)
-    * Node 2: 0.000003s (50.00%)
-    * Total distributed simulation time: 0.02 seconds.
+--------------------------------------------------------
+|  Approach      |   Time (sec)    |
+--------------------------------------------------------
+| Sequential     	| 42.39           |
+| Parallel (2w)  	| 32.19           |
+| Parallel (4w)  	| 1.51            |
+| Parallel (8w)  	| 1.58            |
+| Distributed (2 Nodes) | 1.31            |
+--------------------------------------------------------
 
-Analysis & Remaining Bottlenecks:
-- Speedup values are not linear, mainly due to very low image processing times—overheads often dominate at this small dataset scale.
-- Actual speedup benefits will be clearer with much larger datasets.
-- On Colab and Google Drive I/O, file reading/writing and process startup can limit speed improvements when job size is tiny.
-- For real-world (larger) tasks, parallel and distributed processing gives substantial gain over sequential workflows.
+Best Number of Workers:
+--------------------------------------------------------
+Based on the timings, the best performance was achieved with 4 workers (Time: 1.51 sec). This was slightly faster than 8 workers, suggesting the overhead of managing additional parallel threads or processes may offset gains beyond 4 workers for this dataset size.
+
+Discussion:
+--------------------------------------------------------
+Parallelism improved processing speed dramatically over sequential execution, with more than a 21x speedup (4 workers) and similar performance for distributed processing. Most of the bottleneck now comes from the input/output operations to Google Drive (I/O), Python interpreter overhead, and thread/process contention. For even larger datasets, distributed and parallel processing will help even more, but only up to the point where I/O and communication outweigh CPU benefits.
+
+--------------------------------------------------------
