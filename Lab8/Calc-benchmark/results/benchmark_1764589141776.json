@@ -1,0 +1,130 @@
+{
+  "timestamp": "2025-12-01T11:39:01.776Z",
+  "configuration": {
+    "duration": 10,
+    "connections": 10,
+    "pipelining": 1
+  },
+  "payloads": {
+    "rest": {
+      "request": 14,
+      "response": 36,
+      "total": 50
+    },
+    "grpc": {
+      "request": 18,
+      "response": 20,
+      "total": 38
+    }
+  },
+  "results": [
+    {
+      "service": "REST",
+      "operation": "Add",
+      "latency": {
+        "mean": 4.07,
+        "p50": 4,
+        "p99": 12
+      },
+      "throughput": 2171.7,
+      "requests": 21713,
+      "errors": 0,
+      "duration": 10.03
+    },
+    {
+      "service": "REST",
+      "operation": "Subtract",
+      "latency": {
+        "mean": 3.76,
+        "p50": 4,
+        "p99": 8
+      },
+      "throughput": 2338.46,
+      "requests": 25716,
+      "errors": 0,
+      "duration": 11.01
+    },
+    {
+      "service": "REST",
+      "operation": "Multiply",
+      "latency": {
+        "mean": 3.72,
+        "p50": 4,
+        "p99": 7
+      },
+      "throughput": 2370.4,
+      "requests": 23695,
+      "errors": 0,
+      "duration": 10.01
+    },
+    {
+      "service": "REST",
+      "operation": "Divide",
+      "latency": {
+        "mean": 3.61,
+        "p50": 3,
+        "p99": 8
+      },
+      "throughput": 2393.37,
+      "requests": 26317,
+      "errors": 0,
+      "duration": 11.01
+    },
+    {
+      "service": "gRPC",
+      "operation": "Add",
+      "latency": {
+        "mean": 5.54479351687389,
+        "p50": 5,
+        "p95": 9,
+        "p99": 11
+      },
+      "throughput": 1801.6,
+      "requests": 18016,
+      "errors": 0,
+      "duration": 10
+    },
+    {
+      "service": "gRPC",
+      "operation": "Subtract",
+      "latency": {
+        "mean": 5.192093917199107,
+        "p50": 5,
+        "p95": 9,
+        "p99": 11
+      },
+      "throughput": 1924.9075092490752,
+      "requests": 19251,
+      "errors": 0,
+      "duration": 10.001
+    },
+    {
+      "service": "gRPC",
+      "operation": "Multiply",
+      "latency": {
+        "mean": 4.810115008902363,
+        "p50": 5,
+        "p95": 6,
+        "p99": 9
+      },
+      "throughput": 2078.1,
+      "requests": 20781,
+      "errors": 0,
+      "duration": 10
+    },
+    {
+      "service": "gRPC",
+      "operation": "Divide",
+      "latency": {
+        "mean": 4.923550564011625,
+        "p50": 5,
+        "p95": 8,
+        "p99": 10
+      },
+      "throughput": 2029.8970102989701,
+      "requests": 20301,
+      "errors": 0,
+      "duration": 10.001
+    }
+  ]
+}
